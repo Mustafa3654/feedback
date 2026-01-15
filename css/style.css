@@ -19,6 +19,13 @@
     --shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
     --header-bg: rgba(255, 255, 255, 0.8);
 }
+.admin-login-btn {
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+    border: none;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+}
 
 .dark {
     /* Dark Mode Colors */

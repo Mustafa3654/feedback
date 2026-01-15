@@ -2,8 +2,8 @@
 session_start();
 
 // Default admin credentials (change these in production!)
-define('ADMIN_USERNAME', 'admin');
-define('ADMIN_PASSWORD', 'admin123'); // Change this password!
+define('ADMIN_USERNAME', 'Admin');
+define('ADMIN_PASSWORD', 'Admin'); // Change this password!
 
 $error = '';
 
