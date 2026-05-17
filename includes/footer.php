@@ -1,6 +1,6 @@
 <!-- Footer -->
 <footer>
-    &copy; <?php echo date('Y'); ?> <?php echo isset($footerText) ? htmlspecialchars($footerText) : 'AlphaSoft'; ?>. All rights reserved.
+    &copy; <?php echo date('Y'); ?> <?php echo isset($footerText) ? htmlspecialchars($footerText) : 'Mustafa Abou El-Hajj'; ?>. All rights reserved.
 </footer>
 
 <!-- Toast Container -->

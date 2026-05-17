@@ -2,7 +2,7 @@
 $pageTitle = 'Feedback Portal';
 $basePath = '';
 $showAdminLink = true;
-$footerText = 'AlphaSoft';
+$footerText = 'Mustafa Abou El-Hajj';
 require_once 'includes/head.php';
 require_once 'includes/header.php';
 ?>

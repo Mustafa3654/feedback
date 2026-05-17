@@ -53,7 +53,7 @@ if (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true
 
 $pageTitle = 'Admin Login - Feedback Portal';
 $basePath = '../';
-$footerText = 'Feedback Portal';
+$footerText = 'Mustafa Abou El-Hajj';
 $includeThemeScript = true;
 require_once '../includes/head.php';
 ?>

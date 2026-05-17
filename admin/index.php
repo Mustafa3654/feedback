@@ -48,7 +48,7 @@ if (isset($_GET['logout'])) {
 $pageTitle = 'Admin Panel - Feedback Portal';
 $basePath = '../';
 $showNavLinks = true;
-$footerText = 'Feedback Portal';
+$footerText = 'Mustafa Abou El-Hajj';
 $jsFiles = ['js/admin-theme.js'];
 require_once '../includes/head.php';
 require_once '../includes/header.php';
