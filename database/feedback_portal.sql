@@ -46,5 +46,10 @@ CREATE TABLE IF NOT EXISTS `users` (
     UNIQUE KEY `users_username_unique` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+-- Insert default admin user (username: admin, password: admin123)
+INSERT INTO `users` (`username`, `password`, `role`) 
+VALUES ('admin', '$2y$12$O5h4isw1LBAb0gBu8UenyuHo2THhqIpHUwYIreTsx8dJZvsF7WAsC', 'admin')
+ON DUPLICATE KEY UPDATE `username` = `username`;
+
 -- Success message
 SELECT 'Database setup completed successfully!' AS Status;
