@@ -112,7 +112,7 @@ Edit `css/style.css` and modify the CSS variables in `:root` (light mode) and `.
 
 ```css
 :root {
-    --primary: #2563eb;        /* Main button color */
+    --primary: #42522B;        /* Main button color */
     --background: #ffffff;     /* Page background */
     --foreground: #1a1a1a;     /* Text color */
     /* ... more variables */

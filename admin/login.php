@@ -1,9 +1,6 @@
 <?php
 session_start();
-
-// Default admin credentials (change these in production!)
-define('ADMIN_USERNAME', 'moustafa');
-define('ADMIN_PASSWORD', 'Admin'); // Change this password!
+require_once '../includes/Database.php';
 
 $error = '';
 
@@ -11,16 +8,40 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = isset($_POST['username']) ? trim($_POST['username']) : '';
     $password = isset($_POST['password']) ? $_POST['password'] : '';
 
-    // Validate credentials (no database query, so no SQL injection risk)
-    // Using strict comparison (===) for security
-    if ($username === ADMIN_USERNAME && $password === ADMIN_PASSWORD) {
-        $_SESSION['admin_logged_in'] = true;
-        // Sanitize before storing in session to prevent XSS if displayed elsewhere
-        $_SESSION['admin_username'] = htmlspecialchars(ADMIN_USERNAME, ENT_QUOTES, 'UTF-8');
-        header('Location: index.php');
-        exit;
+    if ($username !== '' && $password !== '') {
+        try {
+            $db = Database::getInstance();
+            // Fetch the user from the database
+            $user = $db->fetchOne('SELECT * FROM users WHERE username = ?', [$username]);
+
+            if ($user) {
+                // Check password: support both modern hashed passwords and plaintext fallback
+                $passwordMatch = false;
+                if (password_verify($password, $user['password'])) {
+                    $passwordMatch = true;
+                } else if ($password === $user['password']) {
+                    $passwordMatch = true;
+                }
+
+                if ($passwordMatch) {
+                    $_SESSION['admin_logged_in'] = true;
+                    // Sanitize before storing in session to prevent XSS if displayed elsewhere
+                    $_SESSION['admin_username'] = htmlspecialchars($user['username'], ENT_QUOTES, 'UTF-8');
+                    $_SESSION['admin_role'] = $user['role'];
+                    
+                    header('Location: index.php');
+                    exit;
+                } else {
+                    $error = 'Invalid username or password';
+                }
+            } else {
+                $error = 'Invalid username or password';
+            }
+        } catch (Exception $e) {
+            $error = 'Database error: ' . $e->getMessage();
+        }
     } else {
-        $error = 'Invalid username or password';
+        $error = 'Please enter both username and password';
     }
 }
 

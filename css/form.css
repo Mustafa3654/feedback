@@ -51,7 +51,7 @@ input, textarea {
 input:focus, textarea:focus {
     outline: none;
     border-color: var(--ring);
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    box-shadow: 0 0 0 3px var(--ring-glow);
 }
 
 input::placeholder, textarea::placeholder {
@@ -130,8 +130,8 @@ textarea {
 }
 
 .submit-btn:hover {
-    background-color: #1d4ed8;
-    box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
+    background-color: var(--primary-hover);
+    box-shadow: 0 10px 15px -3px var(--primary-glow);
 }
 
 .submit-btn:active {
