@@ -7,7 +7,7 @@
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'feedback_portal');
 define('DB_USER', 'root');
-define('DB_PASS', 'Mostafa2004'); // Default XAMPP has no password
+define('DB_PASS', ''); // Default XAMPP has no password
 
 // Error reporting (set to 0 in production)
 error_reporting(E_ALL);
